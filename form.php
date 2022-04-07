@@ -98,7 +98,7 @@
         echo "entrée dans le if \n <br/>";
         include "./db_connect.php";
 
-        $requeteSqlIFExist = "SELECT * FROM `Producteur` WHERE `mail` = '" . $mail . "';";
+        $requeteSqlIFExist = "SELECT * FROM `Producteur` WHERE `mail` = '" . $_GET['mail'] . "';";
         $requeteIfExist = $pdo->query($requeteSqlIFExist);
         $requete = $requeteIfExist->fetchAll();
         $nbLigneRequete = $requeteIfExist->rowCount();
@@ -114,9 +114,9 @@
             $prenom = $_GET['prenom'];
             $adresse = $_GET['adresse'];
             $siren = $_GET['siren'];
-            $mail = $_GET['mail'];
+            $mailProducteur = $_GET['mail'];
 
-            $to      = $mail;
+            $to      = $mailProducteur;
             $subject = 'Verification de votre Adresse mail';
             $headers = array(
                 'From' => 'maissa.rem08@gmail.com',
